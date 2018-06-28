@@ -16,12 +16,12 @@ public class AbastecimentoDao {
         SQLiteDatabase conn = Conexao.getInstance().getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put("data", abastecimento.getData().getDate());
+        values.put("data", abastecimento.getData());
         values.put("custoTotal", abastecimento.getCustoTotal());
         values.put("precoLitro", abastecimento.getPrecoLitro());
         values.put("litros", abastecimento.getLitros());
         values.put("odometro", abastecimento.getOdometro());
-        values.put("tanqueCheio", abastecimento.isTanqueCheio());
+        values.put("tanqueCheio", abastecimento.getTanqueCheio());
         values.put("media", abastecimento.getMedia());
         values.put("posto", abastecimento.getPosto());
 
@@ -51,7 +51,7 @@ public class AbastecimentoDao {
                 abastecimento.setPrecoLitro(c.getDouble(3));
                 abastecimento.setLitros(c.getDouble(4));
                 abastecimento.setOdometro(c.getInt(5));
-                abastecimento.setTanqueCheio(c.i);
+                abastecimento.setTanqueCheio(c.getInt(6));
                 abastecimento.setMedia(c.getDouble(7));
                 abastecimento.setPosto(c.getString(8));
 

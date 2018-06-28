@@ -20,12 +20,12 @@ public class Conexao extends SQLiteOpenHelper {
 
         String statement = " create table abastecimento (" +
                 " id integer primary key autoincrement," +
-                " data date," +
+                " data varchar(10)," +
                 " custoTotal double," +
                 " precoLitro double," +
                 " litros double," +
                 " odometro integer," +
-                " taqueCheio boolean," +
+                " taqueCheio integer," + //zero se verdadeiro
                 " media double," +
                 " posto varchar (255)" +
                 ")";

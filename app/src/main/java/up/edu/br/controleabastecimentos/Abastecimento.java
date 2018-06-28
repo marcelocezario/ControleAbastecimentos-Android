@@ -6,12 +6,12 @@ import java.util.Date;
 public class Abastecimento implements Serializable{
 
     private Integer id;
-    private Date data;
+    private String data;
     private Double custoTotal;
     private Double precoLitro;
     private Double litros;
     private int odometro;
-    private boolean tanqueCheio;
+    private int tanqueCheio;
     private Double media;
     private String posto;
 
@@ -24,11 +24,11 @@ public class Abastecimento implements Serializable{
         this.id = id;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Date data) {
+    public void setData(String data) {
         this.data = data;
     }
 
@@ -64,14 +64,6 @@ public class Abastecimento implements Serializable{
         this.odometro = odometro;
     }
 
-    public boolean isTanqueCheio() {
-        return tanqueCheio;
-    }
-
-    public void setTanqueCheio(boolean tanqueCheio) {
-        this.tanqueCheio = tanqueCheio;
-    }
-
     public Double getMedia() {
         return media;
     }
@@ -86,5 +78,13 @@ public class Abastecimento implements Serializable{
 
     public void setPosto(String posto) {
         this.posto = posto;
+    }
+
+    public int getTanqueCheio() {
+        return tanqueCheio;
+    }
+
+    public void setTanqueCheio(int tanqueCheio) {
+        this.tanqueCheio = tanqueCheio;
     }
 }
