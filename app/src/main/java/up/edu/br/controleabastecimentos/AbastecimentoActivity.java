@@ -48,7 +48,7 @@ public class AbastecimentoActivity extends AppCompatActivity {
             abastecimento = (Abastecimento) it.getSerializableExtra("abastecimento");
 
             txtData.setText(abastecimento.getData());
-            txtOdometro.setText(abastecimento.getOdometro());
+            txtOdometro.setText(String.valueOf(abastecimento.getOdometro()));
             txtCustoTotal.setText(Double.toString(abastecimento.getCustoTotal()));
             txtPrecoLitro.setText(Double.toString(abastecimento.getPrecoLitro()));
             if (abastecimento.getTanqueCheio() == 0) {
