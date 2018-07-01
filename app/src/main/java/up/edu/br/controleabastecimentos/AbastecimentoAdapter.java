@@ -27,8 +27,9 @@ public class AbastecimentoAdapter extends BaseAdapter{
     @Override
     public long getItemId(int position) { return 0; }
 
+
     @Override
-    public View getView(int position, View convertVier, ViewGroup parent){
+    public View getView(int position, View convertView, ViewGroup parent){
 
         View v = act.getLayoutInflater().inflate(R.layout.abastecimento_adapter, parent, false);
 
