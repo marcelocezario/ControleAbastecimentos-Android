@@ -19,33 +19,36 @@ public class AbastecimentoDao {
                 null, null, null, null, "id");
 
 
-        if (c.moveToLast()) {
-            Double litrosAcumulados = 0.0;
-            do {
-                if (c.getInt(3) == 0) {
-                    litrosAcumulados += abastecimento.getLitros();
-                    abastecimento.setOdometroUltimoTanqueCheio(c.getInt(2));
-                    abastecimento.setUltimaMedia(c.getDouble(4));
-                } else {
-                    litrosAcumulados = c.getDouble(5) + abastecimento.getLitros();
-                    abastecimento.setOdometroUltimoTanqueCheio(c.getInt(6));
-                    abastecimento.setUltimaMedia(c.getDouble(7));
-                }
-                abastecimento.setLitrosAcumulados(litrosAcumulados);
-            } while (c.moveToNext());
-        }
+        if (abastecimento.getId() == null){
 
-        try {
-            if (abastecimento.getTanqueCheio() == 0 && abastecimento.getOdometroUltimoTanqueCheio() != 0) {
-                int totalRodado = abastecimento.getOdometro() - abastecimento.getOdometroUltimoTanqueCheio();
-                abastecimento.setMedia(totalRodado / abastecimento.getLitrosAcumulados());
-
-            } else {
-                abastecimento.setMedia(0.0);
-
+            if (c.moveToLast()) {
+                Double litrosAcumulados = 0.0;
+                do {
+                    if (c.getInt(3) == 0) {
+                        litrosAcumulados += abastecimento.getLitros();
+                        abastecimento.setOdometroUltimoTanqueCheio(c.getInt(2));
+                        abastecimento.setUltimaMedia(c.getDouble(4));
+                    } else {
+                        litrosAcumulados = c.getDouble(5) + abastecimento.getLitros();
+                        abastecimento.setOdometroUltimoTanqueCheio(c.getInt(6));
+                        abastecimento.setUltimaMedia(c.getDouble(7));
+                    }
+                    abastecimento.setLitrosAcumulados(litrosAcumulados);
+                } while (c.moveToNext());
             }
-        } catch (NullPointerException e) {
-            abastecimento.setMedia(0.0);
+
+            try {
+                if (abastecimento.getTanqueCheio() == 0 && abastecimento.getOdometroUltimoTanqueCheio() != 0) {
+                    int totalRodado = abastecimento.getOdometro() - abastecimento.getOdometroUltimoTanqueCheio();
+                    abastecimento.setMedia(totalRodado / abastecimento.getLitrosAcumulados());
+
+                } else {
+                    abastecimento.setMedia(0.0);
+
+                }
+            } catch (NullPointerException e) {
+                abastecimento.setMedia(0.0);
+            }
         }
 
 //        SQLiteDatabase conn = Conexao.getInstance().getReadableDatabase();

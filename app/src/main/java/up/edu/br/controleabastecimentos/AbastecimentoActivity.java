@@ -48,7 +48,7 @@ public class AbastecimentoActivity extends AppCompatActivity {
         EditText txtPrecoLitro = (EditText) findViewById(R.id.txtPrecoLitro);
         EditText txtPosto = (EditText) findViewById(R.id.txtPosto);
         EditText txtTelefone = (EditText) findViewById(R.id.txtTelefone);
-        CheckBox chkTanqueCheio = (CheckBox) findViewById(R.id.checkBoxTanqueCheio);
+        CheckBox chkTanqueCheio = (CheckBox) findViewById(R.id.chkTanqueCheio);
 
         Intent it = getIntent();
         if (it != null && it.hasExtra("abastecimento")) {
@@ -89,7 +89,7 @@ public class AbastecimentoActivity extends AppCompatActivity {
             EditText txtPrecoLitro = (EditText) findViewById(R.id.txtPrecoLitro);
             EditText txtPosto = (EditText) findViewById(R.id.txtPosto);
             EditText txtTelefone = (EditText) findViewById(R.id.txtTelefone);
-            CheckBox chkTanqueCheio = (CheckBox) findViewById(R.id.checkBoxTanqueCheio);
+            CheckBox chkTanqueCheio = (CheckBox) findViewById(R.id.chkTanqueCheio);
 
             if (abastecimento == null){
                 abastecimento = new Abastecimento();

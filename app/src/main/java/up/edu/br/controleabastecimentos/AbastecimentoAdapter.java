@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.util.List;
@@ -36,14 +37,24 @@ public class AbastecimentoAdapter extends BaseAdapter{
         TextView txtData = v.findViewById(R.id.txtData);
         TextView txtOdometro = v.findViewById(R.id.txtOdometro);
         TextView txtMedia = v.findViewById(R.id.txtMedia);
+        CheckBox chkTanqueCheio = v.findViewById(R.id.chkTanqueCheio);
         TextView txtLitros = v.findViewById(R.id.txtLitros);
 
         Abastecimento a = abastecimentos.get(position);
 
         txtData.setText("Data: " + a.getData().toString());
-        txtOdometro.setText("Odometro: " + String.valueOf(a.getOdometro()));
-        txtMedia.setText("Km/l: " + String.format("%.3f",a.getMedia().toString()));
-        txtLitros.setText("Litros: " + String.format("%.3f",a.getLitros().toString()));
+        txtOdometro.setText("Odometro: " + a.getOdometro());
+        txtMedia.setText("Km/l: " + String.format("%,3f",a.getMedia()));
+
+        if (a.getTanqueCheio()==0){
+            chkTanqueCheio.setChecked(true);
+        }
+        else{
+            chkTanqueCheio.setChecked(false);
+        }
+
+
+        txtLitros.setText("Litros: " + String.format("%,3f",a.getLitros()));
 
 
         return v;
