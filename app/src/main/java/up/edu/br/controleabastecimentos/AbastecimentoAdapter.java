@@ -42,8 +42,8 @@ public class AbastecimentoAdapter extends BaseAdapter{
 
         txtData.setText("Data: " + a.getData().toString());
         txtOdometro.setText("Odometro: " + String.valueOf(a.getOdometro()));
-        txtMedia.setText("Média: " + a.getMedia().toString());
-        txtLitros.setText("Litros: " + a.getLitros().toString());
+        txtMedia.setText("Km/l: " + String.format("%.3f",a.getMedia().toString()));
+        txtLitros.setText("Litros: " + String.format("%.3f",a.getLitros().toString()));
 
 
         return v;
