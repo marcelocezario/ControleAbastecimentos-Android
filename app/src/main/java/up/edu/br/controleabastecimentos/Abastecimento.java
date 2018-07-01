@@ -15,6 +15,13 @@ public class Abastecimento implements Serializable{
     private Double media;
     private String posto;
 
+    @Override
+    public boolean equals(Object o){
+        if (id == null || ((Abastecimento)o).getId() == null){
+            return false;
+        }
+        return id.equals(((Abastecimento)o).getId());
+    }
 
     public Integer getId() {
         return id;
@@ -64,6 +71,14 @@ public class Abastecimento implements Serializable{
         this.odometro = odometro;
     }
 
+    public int getTanqueCheio() {
+        return tanqueCheio;
+    }
+
+    public void setTanqueCheio(int tanqueCheio) {
+        this.tanqueCheio = tanqueCheio;
+    }
+
     public Double getMedia() {
         return media;
     }
@@ -78,13 +93,5 @@ public class Abastecimento implements Serializable{
 
     public void setPosto(String posto) {
         this.posto = posto;
-    }
-
-    public int getTanqueCheio() {
-        return tanqueCheio;
-    }
-
-    public void setTanqueCheio(int tanqueCheio) {
-        this.tanqueCheio = tanqueCheio;
     }
 }
