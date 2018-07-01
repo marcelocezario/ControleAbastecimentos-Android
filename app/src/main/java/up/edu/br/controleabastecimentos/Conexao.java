@@ -8,7 +8,9 @@ public class Conexao extends SQLiteOpenHelper {
 
     private static Conexao conexao;
 
-    public static Conexao getInstance(){ return conexao; }
+    public static Conexao getInstance(){
+        return conexao;
+    }
 
     public Conexao (Context context, String name, SQLiteDatabase.CursorFactory factory, int version){
         super(context, name, factory, version);
@@ -27,7 +29,8 @@ public class Conexao extends SQLiteOpenHelper {
                 " odometro integer," +
                 " taqueCheio integer," + //zero se verdadeiro
                 " media double," +
-                " posto varchar (255)" +
+                " posto varchar (255)," +
+                " telefone varchar (20)," +
                 ")";
 
         db.execSQL(statement);
@@ -36,6 +39,10 @@ public class Conexao extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+        if (oldVersion == 1){
+
+        }
 
     }
 }
