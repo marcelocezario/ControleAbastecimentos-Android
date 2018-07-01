@@ -70,7 +70,7 @@ public class AbastecimentoDao {
 
         ArrayList<Abastecimento> abastecimentos = new ArrayList<Abastecimento>();
 
-        if (c.moveToFirst()) {
+        if (c.moveToLast()) {
             do {
                 Abastecimento abastecimento = new Abastecimento();
                 abastecimento.setId(c.getInt(0));
@@ -85,7 +85,7 @@ public class AbastecimentoDao {
                 abastecimento.setTelefone(c.getString(9));
 
                 abastecimentos.add(abastecimento);
-            } while (c.moveToNext());
+            } while (c.moveToPrevious());
         }
 
         return abastecimentos;
