@@ -15,6 +15,9 @@ public class Abastecimento implements Serializable{
     private Double media;
     private String posto;
     private String telefone;
+    private Double litrosAcumulados;
+    private int odometroUltimoTanqueCheio;
+    private Double ultimaMedia;
 
     @Override
     public boolean equals(Object o){
@@ -102,5 +105,32 @@ public class Abastecimento implements Serializable{
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+
+
+    public int getOdometroUltimoTanqueCheio() {
+        return odometroUltimoTanqueCheio;
+    }
+
+    public void setOdometroUltimoTanqueCheio(int odometroUltimoTanqueCheio) {
+        this.odometroUltimoTanqueCheio = odometroUltimoTanqueCheio;
+    }
+
+
+    public Double getUltimaMedia() {
+        return ultimaMedia;
+    }
+
+    public void setUltimaMedia(Double ultimaMedia) {
+        this.ultimaMedia = ultimaMedia;
+    }
+
+    public Double getLitrosAcumulados() {
+        return litrosAcumulados;
+    }
+
+    public void setLitrosAcumulados(Double litrosAcumulados) {
+        this.litrosAcumulados = litrosAcumulados;
     }
 }

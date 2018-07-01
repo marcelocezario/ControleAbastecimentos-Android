@@ -30,7 +30,10 @@ public class Conexao extends SQLiteOpenHelper {
                 " tanqueCheio integer," + //zero se verdadeiro
                 " media double," +
                 " posto varchar (255)," +
-                " telefone varchar (20)" +
+                " telefone varchar (20)," +
+                " litrosAcumulados double," +
+                " odometroUltimoTanqueCheio integer," +
+                " ultimaMedia double" +
                 ")";
 
         db.execSQL(statement);
