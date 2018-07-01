@@ -26,6 +26,8 @@ public class AbastecimentoDao {
 
             abastecimento.setMedia(totalRodado / totalLitros);
 
+            ultimoKmTanqueCheio = abastecimento.getOdometro();
+            totalLitros = 0.0;
         } else {
             if (abastecimento.getTanqueCheio() == 0) {
                 nenhumAbastecimentoTanqueCheio = 1;

@@ -40,10 +40,10 @@ public class AbastecimentoAdapter extends BaseAdapter{
 
         Abastecimento a = abastecimentos.get(position);
 
-        txtData.setText(a.getData().toString());
-        txtOdometro.setText(String.valueOf(a.getOdometro()));
-        txtMedia.setText(a.getMedia().toString());
-        txtLitros.setText(a.getLitros().toString());
+        txtData.setText("Data: " + a.getData().toString());
+        txtOdometro.setText("Odometro: " + String.valueOf(a.getOdometro()));
+        txtMedia.setText("Média: " + a.getMedia().toString());
+        txtLitros.setText("Litros: " + a.getLitros().toString());
 
 
         return v;
