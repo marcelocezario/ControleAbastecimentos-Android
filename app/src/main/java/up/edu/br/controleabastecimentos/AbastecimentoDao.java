@@ -23,7 +23,7 @@ public class AbastecimentoDao {
 
             SQLiteDatabase conn = Conexao.getInstance().getReadableDatabase();
 
-            Cursor c = conn.query("abastecimento", new String[]{"id", "data", "custoTotal", "precoLitro", "litros", "odometro", "tanqueCheio", "media", "posto"},
+            Cursor c = conn.query("abastecimento", new String[]{"id", "data", "custoTotal", "precoLitro", "litros", "odometro", "tanqueCheio", "media", "posto", "telefone"},
                     null, null, null, null, "id");
 
             Abastecimento a = new Abastecimento();
@@ -40,6 +40,7 @@ public class AbastecimentoDao {
                     a.setTanqueCheio(c.getInt(6));
                     a.setMedia(c.getDouble(7));
                     a.setPosto(c.getString(8));
+                    a.setTelefone(c.getString(9));
 
                     ultimoKmTanqueCheio = a.getOdometro();
 
@@ -63,6 +64,7 @@ public class AbastecimentoDao {
                 values.put("tanqueCheio", abastecimento.getTanqueCheio());
                 values.put("media", 0);
                 values.put("posto", abastecimento.getPosto());
+                values.put("telefone", abastecimento.getTelefone());
 
                 if (abastecimento.getId() == null) {
                     conn.insert("abastecimento", null, values);
@@ -90,6 +92,7 @@ public class AbastecimentoDao {
             values.put("tanqueCheio", abastecimento.getTanqueCheio());
             values.put("media", 0);
             values.put("posto", abastecimento.getPosto());
+            values.put("telefone", abastecimento.getTelefone());
 
             if (abastecimento.getId() == null) {
                 conn.insert("abastecimento", null, values);
@@ -102,7 +105,7 @@ public class AbastecimentoDao {
     public List<Abastecimento> listar() {
         SQLiteDatabase conn = Conexao.getInstance().getReadableDatabase();
 
-        Cursor c = conn.query("abastecimento", new String[]{"id", "data", "custoTotal", "precoLitro", "litros", "odometro", "tanqueCheio", "media", "posto"},
+        Cursor c = conn.query("abastecimento", new String[]{"id", "data", "custoTotal", "precoLitro", "litros", "odometro", "tanqueCheio", "media", "posto", "telefone"},
                 null, null, null, null, "id");
 
         ArrayList<Abastecimento> abastecimentos = new ArrayList<Abastecimento>();
@@ -119,6 +122,7 @@ public class AbastecimentoDao {
                 abastecimento.setTanqueCheio(c.getInt(6));
                 abastecimento.setMedia(c.getDouble(7));
                 abastecimento.setPosto(c.getString(8));
+                abastecimento.setTelefone(c.getString(9));
 
                 abastecimentos.add(abastecimento);
             } while (c.moveToNext());
