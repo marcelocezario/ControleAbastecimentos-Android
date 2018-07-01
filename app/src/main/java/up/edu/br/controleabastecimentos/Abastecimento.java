@@ -14,6 +14,7 @@ public class Abastecimento implements Serializable{
     private int tanqueCheio;
     private Double media;
     private String posto;
+    private String telefone;
 
     @Override
     public boolean equals(Object o){
@@ -93,5 +94,13 @@ public class Abastecimento implements Serializable{
 
     public void setPosto(String posto) {
         this.posto = posto;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 }

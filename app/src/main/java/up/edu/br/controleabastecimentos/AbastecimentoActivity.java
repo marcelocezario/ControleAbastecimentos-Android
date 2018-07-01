@@ -30,15 +30,16 @@ public class AbastecimentoActivity extends AppCompatActivity {
     Abastecimento abastecimento;
 
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_abastecimento);
 
-        TextView txtData = (EditText) findViewById(R.id.txtData);
-        TextView txtOdometro = (EditText) findViewById(R.id.txtOdometro);
-        TextView txtCustoTotal = (EditText) findViewById(R.id.txtCustoTotal);
-        TextView txtPrecoLitro = (EditText) findViewById(R.id.txtPrecoLitro);
-        TextView txtPosto = (EditText) findViewById(R.id.txtPosto);
+        EditText txtData = (EditText) findViewById(R.id.txtData);
+        EditText txtOdometro = (EditText) findViewById(R.id.txtOdometro);
+        EditText txtCustoTotal = (EditText) findViewById(R.id.txtCustoTotal);
+        EditText txtPrecoLitro = (EditText) findViewById(R.id.txtPrecoLitro);
+        EditText txtPosto = (EditText) findViewById(R.id.txtPosto);
+        EditText txtTelefone = (EditText) findViewById(R.id.txtTelefone);
         CheckBox chkTanqueCheio = (CheckBox) findViewById(R.id.checkBoxTanqueCheio);
 
         Intent it = getIntent();
@@ -62,17 +63,23 @@ public class AbastecimentoActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_abastecimento, menu);
+        return true;
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.save){
 
-            TextView txtData = (EditText) findViewById(R.id.txtData);
-            TextView txtOdometro = (EditText) findViewById(R.id.txtOdometro);
-            TextView txtCustoTotal = (EditText) findViewById(R.id.txtCustoTotal);
-            TextView txtPrecoLitro = (EditText) findViewById(R.id.txtPrecoLitro);
-            TextView txtPosto = (EditText) findViewById(R.id.txtPosto);
+            EditText txtData = (EditText) findViewById(R.id.txtData);
+            EditText txtOdometro = (EditText) findViewById(R.id.txtOdometro);
+            EditText txtCustoTotal = (EditText) findViewById(R.id.txtCustoTotal);
+            EditText txtPrecoLitro = (EditText) findViewById(R.id.txtPrecoLitro);
+            EditText txtPosto = (EditText) findViewById(R.id.txtPosto);
+            EditText txtTelefone = (EditText) findViewById(R.id.txtTelefone);
             CheckBox chkTanqueCheio = (CheckBox) findViewById(R.id.checkBoxTanqueCheio);
 
             if (abastecimento == null){
@@ -89,6 +96,7 @@ public class AbastecimentoActivity extends AppCompatActivity {
                 abastecimento.setTanqueCheio(1);
             }
             abastecimento.setPosto(txtPosto.getText().toString());
+            abastecimento.setTelefone(txtTelefone.getText().toString());
 
 
             new AbastecimentoDao().salvar(abastecimento);
@@ -102,5 +110,20 @@ public class AbastecimentoActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void ligar (View view){
+        EditText txtTelefone = (EditText) findViewById(R.id.txtTelefone);
+
+        Intent callIntent = new Intent(Intent.ACTION_CALL);
+        callIntent.setData(Uri.parse("tel:" + txtTelefone.getText()));
+
+        ActivityCompat.requestPermissions(AbastecimentoActivity.this, new String[]{Manifest.permission.CALL_PHONE}, 1);
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
+            return;
+        }
+
+        startActivity(callIntent);
     }
 }
