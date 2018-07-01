@@ -27,7 +27,7 @@ public class Conexao extends SQLiteOpenHelper {
                 " precoLitro double," +
                 " litros double," +
                 " odometro integer," +
-                " taqueCheio integer," + //zero se verdadeiro
+                " tanqueCheio integer," + //zero se verdadeiro
                 " media double," +
                 " posto varchar (255)," +
                 " telefone varchar (20)," +
