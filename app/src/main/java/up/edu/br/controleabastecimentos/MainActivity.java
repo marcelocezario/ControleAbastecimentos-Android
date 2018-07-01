@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         AbastecimentoAdapter abastecimentoAdapter = new AbastecimentoAdapter(new AbastecimentoDao().listar(), this);
 
         listaAbastecimentos.setAdapter(abastecimentoAdapter);
-
         listaAbastecimentos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
