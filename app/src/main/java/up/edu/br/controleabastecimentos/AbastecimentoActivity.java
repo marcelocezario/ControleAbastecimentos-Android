@@ -57,6 +57,7 @@ public class AbastecimentoActivity extends AppCompatActivity {
                 chkTanqueCheio.setChecked(false);
             }
             txtPosto.setText(abastecimento.getPosto());
+            txtTelefone.setText(abastecimento.getTelefone());
 
         }
 
