@@ -45,15 +45,6 @@ public class AbastecimentoAdapter extends BaseAdapter{
         txtData.setText("Data: " + a.getData().toString());
         txtOdometro.setText("Odometro: " + a.getOdometro());
         txtMedia.setText("Km/l: " + String.format("%,3f",a.getMedia()));
-
-        if (a.getTanqueCheio()==0){
-            chkTanqueCheio.setChecked(true);
-        }
-        else{
-            chkTanqueCheio.setChecked(false);
-        }
-
-
         txtLitros.setText("Litros: " + String.format("%,3f",a.getLitros()));
 
 
